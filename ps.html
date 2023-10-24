@@ -1,0 +1,6 @@
+-----
+Powershell - Convert Unix times to DateTime
+$unixTimeStamp = "1698685200"
+$date1=(Get-Date 01.01.1970)+([System.TimeSpan]::fromseconds($unixTimeStamp))  
+
+-----
