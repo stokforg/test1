@@ -1,8 +1,36 @@
 ----- <br>
-Powershell - Convert Unix times to DateTime<br>
+Powershell - Convert Unix times to DateTime<br><br>
 $unixTimeStamp = "1698685200"<br>
 $date1=(Get-Date 01.01.1970)+([System.TimeSpan]::fromseconds($unixTimeStamp))<br> 
 <br>
-<a href="https://stackoverflow.com/questions/10781697/convert-unix-time-with-powershell">SO</a> --- <br>  
-<a href="https://michlstechblog.info/blog/powershell-convert-unix-timestamp-to-datetime/">michlstechblog.info </a><br>
------<br>
+<a href="https://stackoverflow.com/questions/10781697/convert-unix-time-with-powershell">SO</a> ---  
+<a href="https://michlstechblog.info/blog/powershell-convert-unix-timestamp-to-datetime/">michlstechblog.info </a>
+<br><br>-----<br><br>
+Powershell  - most efficient way to delete first X lines from a file.
+<code>
+$infile = "$env:TEMP\test.txt"
+$outfile = "$env:TEMP\test2.txt"
+
+# fill infile with goop
+1..100 | % { "Line $_ : Moo" } | Out-File $infile
+
+$skiplines = 5
+
+$reader = New-Object System.IO.StreamReader $infile
+$writer = New-Object System.IO.StreamWriter $outfile
+
+for($i = 0; $i -lt $skiplines; $i++) {
+    $null = $reader.ReadLine()
+}
+
+while(-not $reader.EndOfStream) {
+    $writer.WriteLine($reader.ReadLine())
+}
+
+$reader.Close()
+$writer.Close()
+</code>
+<br>
+<a href ="https://www.reddit.com/r/PowerShell/comments/68y757/what_is_the_most_efficient_way_to_delete_first_n/">Reddit</a>
+
+<br><br>-----<br><br>
