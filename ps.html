@@ -1,13 +1,15 @@
 ----- <br>
-Powershell - Convert Unix times to DateTime<br><br>
+<b>Powershell - Convert Unix times to DateTime</b><br><br>
+<pre>
 $unixTimeStamp = "1698685200"<br>
 $date1=(Get-Date 01.01.1970)+([System.TimeSpan]::fromseconds($unixTimeStamp))<br> 
+</pre>
 <br>
 <a href="https://stackoverflow.com/questions/10781697/convert-unix-time-with-powershell">SO</a> ---  
 <a href="https://michlstechblog.info/blog/powershell-convert-unix-timestamp-to-datetime/">michlstechblog.info </a>
 <br><br>-----<br><br>
-Powershell  - most efficient way to delete first X lines from a file.
-<code>
+<b>Powershell  - most efficient way to delete first X lines from a file.</b><br><br>
+<pre>
 $infile = "$env:TEMP\test.txt"
 $outfile = "$env:TEMP\test2.txt"
 
@@ -29,7 +31,7 @@ while(-not $reader.EndOfStream) {
 
 $reader.Close()
 $writer.Close()
-</code>
+</pre>
 <br>
 <a href ="https://www.reddit.com/r/PowerShell/comments/68y757/what_is_the_most_efficient_way_to_delete_first_n/">Reddit</a>
 
